@@ -22,4 +22,9 @@ public class FlashCardQuiz {
         throw new UnsupportedOperationException("Unimplemented method");
     }
 
+    public void answerQuestion(int questionIndex, int answer) {
+        // TODO: Implement this method
+        throw new UnsupportedOperationException("Unimplemented method");
+    } 
+
 }
