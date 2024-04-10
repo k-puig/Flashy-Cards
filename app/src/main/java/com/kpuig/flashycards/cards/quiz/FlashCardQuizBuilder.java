@@ -5,7 +5,7 @@ import java.util.Random;
 
 import com.kpuig.flashycards.cards.FlashCard;
 
-public class FlashCardQuizBuilder {
+public final class FlashCardQuizBuilder {
     private static Random random = new Random();
 
     private FlashCardQuizBuilder() {
