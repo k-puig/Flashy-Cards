@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kpuig.flashycards.ui.controllers.editor.FlashCardListController" spacing="10">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <children>
+        <ListView fx:id="flashcardListView" VBox.vgrow="ALWAYS"/>
+        <Button text="Edit Selected Flashcard" onAction="#handleEdit"/>
+    </children>
+</VBox>
