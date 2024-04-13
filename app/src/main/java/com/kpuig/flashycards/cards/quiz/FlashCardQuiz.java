@@ -41,9 +41,7 @@ public class FlashCardQuiz {
     public void answerQuestion(int questionIndex, int answer) {
         if(questionIndex >= 0 && questionIndex < questions.size()){
             questions.get(questionIndex).answerQuestion(answer);
-        } else{
-            throw new IllegalArgumentException("Invalid question Index");
-        }
+        } 
 
 
         // TODO: Implement this method
