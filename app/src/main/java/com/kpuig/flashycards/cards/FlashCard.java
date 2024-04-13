@@ -1,7 +1,12 @@
 package com.kpuig.flashycards.cards;
 
+import com.google.gson.annotations.*;
+
 public class FlashCard {
+    @SerializedName("front")
     public String front;
+
+    @SerializedName("back")
     public String back;
 
     public FlashCard() {
@@ -17,5 +22,10 @@ public class FlashCard {
     @Override
     public int hashCode() {
         return front.hashCode() ^ back.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Front: " + front + " | Back: " + back; 
     }
 }
