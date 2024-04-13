@@ -42,8 +42,6 @@ public class FlashCardQuiz {
         if(questionIndex >= 0 && questionIndex < questions.size()){
             questions.get(questionIndex).answerQuestion(answer);
         } 
-
-
         // TODO: Implement this method
         //throw new UnsupportedOperationException("Unimplemented method");
     } 
