@@ -11,6 +11,8 @@
     </padding>
     <children>
         <ListView fx:id="flashcardListView" VBox.vgrow="ALWAYS"/>
+        <Button text="Create New Flashcard" onAction="#handleNew"/>
         <Button text="Edit Selected Flashcard" onAction="#handleEdit"/>
+        <Button text="Remove Selected Flashcard" onAction="#handleDelete"/>
     </children>
 </VBox>

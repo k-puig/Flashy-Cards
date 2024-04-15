@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kpuig.flashycards.cards.FlashCard;
+import com.kpuig.flashycards.cards.storage.FlashCardSet;
 
 public class FlashCardListController {
 
@@ -21,17 +22,31 @@ public class FlashCardListController {
 
     private List<FlashCard> cards = new ArrayList<>();
 
+    public void setCards(FlashCardSet set) {
+        this.cards = set.getCards();
+        initialize();
+    }
+
     @FXML
     public void initialize() {
-        // Sample data
-        cards.add(new FlashCard("The President of the United States", "George Washington"));
-        cards.add(new FlashCard("The sum of 2 and 2", "4"));
-        cards.add(new FlashCard("The powerhouse of the cell", "Mitochondria"));
-        cards.add(new FlashCard("The derivative of e^x", "e^x"));
-        cards.add(new FlashCard("A classic book called The Great _____", "Gatsby"));
-
         for (FlashCard flashcard : cards) {
             flashcardListView.getItems().add(flashcard.toString());
+        }
+    }
+
+    public void handleNew() {
+        cards.add(new FlashCard());
+        updateList();
+    }
+
+    public void handleDelete() {
+        if (flashcardListView.getSelectionModel().getSelectedIndex() != -1) {
+            cards.remove(flashcardListView.getSelectionModel().getSelectedIndex());
+            updateList();
+        }
+        else {
+            Alert alert = new Alert(AlertType.WARNING, "No flashcard selected", ButtonType.OK);
+            alert.showAndWait();
         }
     }
 
@@ -64,6 +79,13 @@ public class FlashCardListController {
         } else {
             Alert alert = new Alert(AlertType.WARNING, "No flashcard selected", ButtonType.OK);
             alert.showAndWait();
+        }
+    }
+
+    private void updateList() {
+        flashcardListView.getItems().clear();
+        for (FlashCard flashcard : cards) {
+            flashcardListView.getItems().add(flashcard.toString());
         }
     }
 }

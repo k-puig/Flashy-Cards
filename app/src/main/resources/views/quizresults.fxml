@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/fxml/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kpuig.flashycards.ui.controllers.quiz.FlashCardQuizResultsController">
+    <Text text="Quiz Results" style="-fx-font-size: 24px;" VBox.vgrow="NEVER"/>
+    <Text fx:id="scoreText" style="-fx-font-size: 18px;" VBox.vgrow="NEVER"/>
+    <ListView fx:id="resultsList" VBox.vgrow="ALWAYS"/>
+</VBox>
