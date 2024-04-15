@@ -18,4 +18,9 @@ public class FlashCard {
     public int hashCode() {
         return front.hashCode() ^ back.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "Front: " + front + " | Back: " + back;
+    }
 }

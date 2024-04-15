@@ -1,9 +1,11 @@
 package com.kpuig.flashycards.cards.quiz;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Question {
-    private static final int UNANSWERED = -1;
+    public static final int UNANSWERED = -1;
+    public static final String UNANSWERED_STRING = "UNANSWERED";
 
     private String question;
     private ArrayList<String> answers;
@@ -18,8 +20,6 @@ public class Question {
     }
 
     public void answerQuestion(int userAnswer) {
-        if (userAnswer < 0 || userAnswer >= answers.size())
-            throw new ArrayIndexOutOfBoundsException("Invalid user answer index supplied: " + userAnswer);
         this.userAnswerIndex = userAnswer;
     }
 
@@ -27,12 +27,26 @@ public class Question {
         return correctAnswerIndex == userAnswerIndex;
     }
 
+    public String getQuestion() {
+        return this.question;
+    }
+
+    public int getUserAnswerIndex() {
+        return this.userAnswerIndex;
+    }
+
     public String getUserAnswer() {
+        if (userAnswerIndex < 0 || userAnswerIndex >= answers.size())
+            return UNANSWERED_STRING;
         return answers.get(userAnswerIndex);
     }
 
     public String getCorrectAnswer() {
         return answers.get(correctAnswerIndex);
+    }
+
+    public List<String> getAnswers() {
+        return this.answers;
     }
 
     @Override

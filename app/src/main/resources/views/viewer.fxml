@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox VBox.vgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kpuig.flashycards.ui.controllers.viewer.FlashCardViewerController">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <HBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label fx:id="sideShown" text="Front" alignment="CENTER" />
+            <Label fx:id="cardIndex" text="Card 1 of 10" />
+            <BorderPane style="-fx-border-color: black; -fx-border-width: 1;" VBox.vgrow="ALWAYS">
+                <top>
+                    <Region HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+                </top>
+                <left>
+                    <Region HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+                </left>
+                <bottom>
+                    <Region HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+                </bottom>
+                <right>
+                    <Region HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+                </right>
+                <center>
+                    <Label fx:id="cardText" wrapText="true" text="Flashcard text here" />
+                </center>
+            </BorderPane>
+        </VBox>
+        <Button text="Flip" onAction="#handleFlip" VBox.vgrow="ALWAYS" />
+    </HBox>
+    <HBox alignment="BOTTOM_CENTER" spacing="10">
+        <Button text="Previous" onAction="#handlePrev" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="Next" onAction="#handleNext" />
+    </HBox>
+</VBox>
