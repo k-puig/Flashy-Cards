@@ -26,6 +26,6 @@ public class FlashCard {
 
     @Override
     public String toString() {
-        return "Front: " + front + " | Back: " + back; 
+        return "Front: " + front + " | Back: " + back;
     }
 }

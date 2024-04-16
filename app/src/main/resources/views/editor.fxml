@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kpuig.flashycards.ui.controllers.editor.FlashCardEditorController"
+          vgap="10" hgap="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <children>
+        <TextArea fx:id="frontText" promptText="Enter front side" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextArea fx:id="backText" promptText="Enter back side" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Button text="Save" onAction="#handleSave" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Button text="Cancel" onAction="#handleCancel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </children>
+</GridPane>

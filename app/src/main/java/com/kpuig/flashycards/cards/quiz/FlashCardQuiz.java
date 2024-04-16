@@ -7,7 +7,7 @@ public class FlashCardQuiz {
     public static final int ANSWERS_PER_QUESTION = 4;
 
     private ArrayList<Question> questions;
-    
+
     public FlashCardQuiz(ArrayList<Question> questions) {
         this.questions = questions;
     }
@@ -18,13 +18,26 @@ public class FlashCardQuiz {
 
     // Inclusive Range [0.0, 1.0]
     public double getScore() {
-        // TODO: Implement this method such that the highest score is 1.0 (100%) and lowest is 0.0 (0%)
-        throw new UnsupportedOperationException("Unimplemented method");
+        int totalQuestions = questions.size();
+        if (totalQuestions == 0 ) {
+            return 0.0;
+        }
+
+        int correctAnswers = 0;
+        for (Question question : questions) {
+            if (question.isCorrect()) {
+                correctAnswers++;
+            }
+        }
+
+        return (double) correctAnswers / totalQuestions;
+       
     }
 
     public void answerQuestion(int questionIndex, int answer) {
-        // TODO: Implement this method
-        throw new UnsupportedOperationException("Unimplemented method");
+        if (questionIndex >= 0 && questionIndex < questions.size()) {
+            questions.get(questionIndex).answerQuestion(answer);
+        }
     } 
 
 }
