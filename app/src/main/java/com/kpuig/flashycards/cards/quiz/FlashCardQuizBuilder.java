@@ -13,7 +13,31 @@ public final class FlashCardQuizBuilder {
     }
 
     public static FlashCardQuiz createNewRandomQuiz(ArrayList<FlashCard> cards) {
-        // TODO: implement this method using static random field
-        throw new UnsupportedOperationException("Method not yet implemented");
+        // List that stores selected flashcards
+        ArrayList<Question> questions = new ArrayList<>();
+        // For each loop that goes through the cards on the list
+        for (FlashCard card : cards) {
+            ArrayList<String> answers = new ArrayList<>();
+            answers.add(card.back); //Correct answer
+            //Shuffled distractors
+            for (int k = 0; k < FlashCardQuiz.ANSWERS_PER_QUESTION; k++) {
+                int randomIndex = random.nextInt(cards.size());
+                answers.add(cards.get(randomIndex).back);
+            }
+            //Shuffled answers
+            for (int j = answers.size() - 1; j > 0; j--) {
+                int k = random.nextInt(j + 1);
+                String tempAnswer = answers.get(j);
+                answers.set(j, answers.get(k));
+                answers.set(k, tempAnswer);
+            }
+            //Find index of correct answer
+            int correctAnswerIndex = answers.indexOf(card.back);
+            //Creates question with correct answer shuffled
+            questions.add(new Question(card.back, answers, correctAnswerIndex));
+        }
+
+        return new FlashCardQuiz(questions);
+        
     }
 }
