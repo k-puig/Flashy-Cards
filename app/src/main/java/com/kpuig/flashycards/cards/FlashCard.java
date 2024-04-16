@@ -1,7 +1,12 @@
 package com.kpuig.flashycards.cards;
 
+import com.google.gson.annotations.*;
+
 public class FlashCard {
+    @SerializedName("front")
     public String front;
+
+    @SerializedName("back")
     public String back;
 
     public FlashCard() {
