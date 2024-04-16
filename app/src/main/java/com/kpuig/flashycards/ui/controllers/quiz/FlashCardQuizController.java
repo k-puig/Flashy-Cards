@@ -74,10 +74,10 @@ public class FlashCardQuizController {
 
         Question currentQuestion = quiz.getQuestions().get(currentIndex);
         questionLabel.setText(currentQuestion.getQuestion());
-        option1.setText(currentQuestion.getAnswers().get(0));
-        option2.setText(currentQuestion.getAnswers().get(1));
-        option3.setText(currentQuestion.getAnswers().get(2));
-        option4.setText(currentQuestion.getAnswers().get(3));
+        option1.setText(currentQuestion.getOrBlank(0));
+        option2.setText(currentQuestion.getOrBlank(1));
+        option3.setText(currentQuestion.getOrBlank(2));
+        option4.setText(currentQuestion.getOrBlank(3));
         questionIndexField.setText(String.valueOf(currentIndex + 1));
         totalQuestionsLabel.setText(String.valueOf(quiz.getQuestions().size()));
         if (currentQuestion.getUserAnswerIndex() != Question.UNANSWERED)

@@ -17,6 +17,10 @@ public class Question {
         this.answers = answers;
         this.correctAnswerIndex = correctAnswerIndex;
         this.userAnswerIndex = UNANSWERED;
+
+        while (answers.size() < FlashCardQuiz.ANSWERS_PER_QUESTION) {
+            answers.add("");
+        }
     }
 
     public void answerQuestion(int userAnswer) {
@@ -43,6 +47,12 @@ public class Question {
 
     public String getCorrectAnswer() {
         return answers.get(correctAnswerIndex);
+    }
+
+    public String getOrBlank(int index) {
+        if (index >= answers.size() || index < 0)
+            return "";
+        return answers.get(index);
     }
 
     public List<String> getAnswers() {

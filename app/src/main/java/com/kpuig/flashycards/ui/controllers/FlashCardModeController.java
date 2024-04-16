@@ -21,7 +21,11 @@ import javafx.stage.Stage;
 
 public class FlashCardModeController {
     private FlashCardSet cards = null;
-    
+
+    public void createNewFlashCardSet() {
+        this.cards = new FlashCardSet();
+    }
+
     @FXML
     private void handleOpen() {
         FileChooser chooser = new FileChooser();
@@ -48,7 +52,7 @@ public class FlashCardModeController {
 
     @FXML
     private void handleView() {
-        if (cards == null || cards.getCards().isEmpty()) {
+        if (cards == null) {
             System.err.println("null cards in view method");
             return;
         }
@@ -73,7 +77,7 @@ public class FlashCardModeController {
 
     @FXML
     private void handleQuiz() {
-        if (cards == null || cards.getCards().isEmpty()) {
+        if (cards == null) {
             System.err.println("null cards in quiz method");
             return;
         }
@@ -111,8 +115,9 @@ public class FlashCardModeController {
 
     @FXML
     private void handleEdit() {
-        if (cards == null || cards.getCards().isEmpty()) {
+        if (cards == null) {
             System.err.println("null cards in edit method");
+            return;
         }
         System.out.println("edit");
 

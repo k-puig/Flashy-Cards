@@ -21,8 +21,13 @@ public final class FlashCardQuizBuilder {
             ArrayList<String> answers = new ArrayList<>();
             answers.add(card.back); //Correct answer
             //Shuffled distractors
-            for (int k = 0; k < FlashCardQuiz.ANSWERS_PER_QUESTION; k++) {
+            int answersLeft = cards.size();
+            for (int k = 0; k < Math.min(FlashCardQuiz.ANSWERS_PER_QUESTION, cards.size()); k++) {
                 int randomIndex = random.nextInt(cards.size());
+                answersLeft--;
+                while (answers.contains(cards.get(randomIndex).back) && answersLeft > 0) {
+                    randomIndex = random.nextInt(cards.size());
+                }
                 answers.add(cards.get(randomIndex).back);
             }
             //Shuffled answers
@@ -35,7 +40,7 @@ public final class FlashCardQuizBuilder {
             //Find index of correct answer
             int correctAnswerIndex = answers.indexOf(card.back);
             //Creates question with correct answer shuffled
-            questions.add(new Question(card.back, answers, correctAnswerIndex));
+            questions.add(new Question(card.front, answers, correctAnswerIndex));
         }
 
         return new FlashCardQuiz(questions);
@@ -43,8 +48,11 @@ public final class FlashCardQuizBuilder {
     }
 
     public static FlashCardQuiz createNewRandomQuiz(List<FlashCard> cards) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createNewRandomQuiz'");
+        ArrayList<FlashCard> cardsArr = new ArrayList<>();
+        for (FlashCard fc : cards) {
+            cardsArr.add(fc);
+        }
+        return createNewRandomQuiz(cardsArr);
     }
 
 }
